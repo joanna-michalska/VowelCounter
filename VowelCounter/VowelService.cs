@@ -4,10 +4,7 @@
     {
         public static int GetVowelCount(string inputString)
         {
-            if (string.IsNullOrEmpty(inputString))
-            {
-                throw new ArgumentException($"No text provided for {nameof(inputString)}. Re-run the program!");
-            }
+            Validate(inputString);
 
             int vowelCount = 0;
             List<string> vowels = new List<string> { "a", "e", "i", "o", "u" };
@@ -21,6 +18,14 @@
             }
 
             return vowelCount;
+        }
+
+        private static void Validate(string inputString)
+        {
+            if (string.IsNullOrEmpty(inputString))
+            {
+                throw new ArgumentException($"No text provided for {nameof(inputString)}. Re-run the program!");
+            }
         }
     }
 }
